@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpiufcjq587h6"]
+
+[ext_resource type="PackedScene" uid="uid://dugx77fbxbleo" path="res://Scenes/wave.tscn" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://dl03stc25tkdd" path="res://Textures/outline circle_asset.png" id="3_1bvp3"]
+[ext_resource type="Script" uid="uid://cagtay5gk2if6" path="res://scripts/character_body_2d_top_down.gd" id="3_h2yge"]
+[ext_resource type="AudioStream" uid="uid://dg13ppjxchp4m" path="res://Audio/Звук шагов по каменному полу для Godot.mp3" id="4_7mycd"]
+[ext_resource type="AudioStream" uid="uid://d3qd56kpu27is" path="res://Audio/Звук хлопка дляGodot.mp3" id="5_272bh"]
+[ext_resource type="Shader" uid="uid://2qpkaeykddcs" path="res://Shaders/dithering_shader.gdshader" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c5yu0jsrb7wj1" path="res://building/master_wall.tscn" id="7_272bh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("5_lquwl")
+shader_parameter/dither_size = 2.0
+shader_parameter/color_depth = 5.00000019
+shader_parameter/chromatic_intensity = 0.002000000095
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(568, 384)
+collision_layer = 2
+script = ExtResource("3_h2yge")
+wave_scene = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(21, -55)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(5.4836273e-06, 1.50203705e-05)
+scale = Vector2(0.03351737, 0.033517305)
+texture = ExtResource("3_1bvp3")
+
+[node name="StepPlayerSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(-568, -384)
+stream = ExtResource("4_7mycd")
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="ClapPlayerSound" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(-568, -384)
+stream = ExtResource("5_272bh")
+panning_strength = 0.0
+bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="PostProcessing" type="ColorRect" parent="CanvasLayer" groups=["PostProcessing"]]
+material = SubResource("ShaderMaterial_7mycd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ClapBar" type="ProgressBar" parent="CanvasLayer" groups=["Clap_bar_group"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 100.0
+show_percentage = false
+
+[node name="StaticBody2D" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(688, 224)
+size = Vector2(32, 64)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(688, 320)
+collision_layer = 2
+size = Vector2(32, 64)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("7_272bh")]
+position = Vector2(688, 416)
+collision_layer = 4
+size = Vector2(32, 64)

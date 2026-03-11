@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3qd56kpu27is"
+path="res://.godot/imported/Звук хлопка дляGodot.mp3-d60e24c0f0e64d335d8d4240c5704515.mp3str"
+
+[deps]
+
+source_file="res://Audio/Звук хлопка дляGodot.mp3"
+dest_files=["res://.godot/imported/Звук хлопка дляGodot.mp3-d60e24c0f0e64d335d8d4240c5704515.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dugx77fbxbleo"]
+
+[ext_resource type="Script" uid="uid://j2imk7betdbq" path="res://scripts/wave.gd" id="1_8asc4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8asc4")
+wave_lifetime = 0.7
+ghost_lifetime = 2.0
+
+[node name="PlaySound" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"

@@ -1,0 +1,10 @@
+# Godot-specific ignores
+.godot/
+.import/
+export/
+*.translation
+
+# Mono/C# specifics (if using C#)
+.mono/
+bin/
+obj/

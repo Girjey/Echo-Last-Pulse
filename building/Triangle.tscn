@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://byn0v0v2ogoi7"]
+
+[ext_resource type="Script" uid="uid://db0ujc7vxsj0e" path="res://scripts/triangle_static_reshaper.gd" id="1_5f5wb"]
+
+[node name="TriangleStatic" type="StaticBody2D"]
+script = ExtResource("1_5f5wb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -50, 50, 50, -50, 50)
