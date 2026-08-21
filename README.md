@@ -1,7 +1,7 @@
 # Polie Echo - 2D TOP DOWN AUDIO-HORROR
 Концепт и GDD хоррора, где игровой процесс построен на эхолокации, пространственном звуке и полном отсутствии традиционного зрения.
 
-<img width="692" height="388" alt="gif police echo" src="https://github.com/user-attachments/assets/0f992369-8d83-4dd7-8cff-e0fde473a6b2" />
+  <img width="692" height="388" alt="gif police echo" src="https://github.com/user-attachments/assets/0f992369-8d83-4dd7-8cff-e0fde473a6b2" />
 
 ### Core Idea
 
